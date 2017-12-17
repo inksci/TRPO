@@ -148,7 +148,6 @@ class SetFromFlat(object):
     def __call__(self, theta):
         self.session.run(self.op, feed_dict={self.theta: theta})
 
-
 class GetFlat(object):
 
     def __init__(self, session, var_list):
