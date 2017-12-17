@@ -1,13 +1,13 @@
 # trpo
-TRPO Tensorflow
+TRPO Tensorflow  
 
-version:
-Python: Python 2.7
-Tensorflow: '1.3.0'
+## version:
+Python: Python 2.7  
+Tensorflow: '1.3.0'  
 
-Run trpo_inksci.py please:
+Run trpo_inksci.py please:  
 ```
-execfile("trpo_inksci.py")
+execfile("trpo_inksci.py")  
 ```
 
 Any question? Contact inksci@qq.com please, and you will receive a short replay quickly!
