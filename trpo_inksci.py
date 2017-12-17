@@ -41,8 +41,6 @@ class TRPOAgent(object):
 
         N = tf.shape(state)[0] # SEEMS like that both the "self.state" and "state" are ok.
 
-        print("-->"*10,action_dist, tf.range(0, N), action)
-
         p_n = slice_2d(action_dist, tf.range(0, N), action)
         oldp_n = slice_2d(oldaction_dist, tf.range(0, N), action)
         ratio_n = p_n / oldp_n
@@ -118,7 +116,6 @@ class TRPOAgent(object):
             advant -= advant.mean()
             advant /= (advant.std() + 1e-8)
 
-            print("1737-"*10, state.shape)
             feed = {self.state: state,
                     self.action: action,
                     self.advant: advant,
@@ -132,6 +129,9 @@ class TRPOAgent(object):
                 return self.session.run(self.losses[0], feed_dict=feed)
 
             episoderewards = np.array([path["rewards"].sum() for path in paths])
+
+            print("\n********** Iteration %i ************" % i)
+
             if episoderewards.mean() > 1.1*500:
                 self.train = False
             if not self.train:
@@ -179,3 +179,5 @@ class TRPOAgent(object):
 env = gym.make("CartPole-v0")
 agent = TRPOAgent(env)
 agent.learn()
+
+
