@@ -1,4 +1,7 @@
 # trpo
+
+![inksci](https://github.com/inksci/xy_move_dqn/blob/master/assets/inksci-logo.png)
+
 TRPO Tensorflow  
 
 ## version:
